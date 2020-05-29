@@ -45,7 +45,6 @@ func init() {
 }
 
 var activityMd = activity.ToMetadata(&Settings{}, &Input{}, &Output{})
-
 //New optional factory method, should be used if one activity instance per configuration is desired
 func New(ctx activity.InitContext) (activity.Activity, error) {
 
