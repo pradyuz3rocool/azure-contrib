@@ -1,0 +1,37 @@
+{
+  "name": "flogo-azure-iothub",
+  "type": "flogo:activity",
+  "version": "0.0.1",
+  "title": "IoTHub",
+  "description": "Connect to IoTHub",
+  "homepage": "https://github.com/project-flogo/tree/master/examples/activity",
+  "settings": [
+    {
+      "name": "connectionString",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "Operation",
+      "type": "string",
+      "required": true,
+      "allowed": ["Add Device", "Delete Device", "Purge Device", "Get Twin Details"]
+    }
+  ],
+  "inputs":[
+    {
+      "name": "Device ID",
+      "type": "string"
+    }
+  ],
+  "output": [
+    {
+      "name": "result",
+      "type":"any"
+    },
+    {
+      "name": "status",
+      "type":"any"
+    }
+  ]
+}
