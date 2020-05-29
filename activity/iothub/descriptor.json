@@ -7,12 +7,12 @@
   "homepage": "https://github.com/project-flogo/azure-contrib/activity/iothub",
   "settings": [
     {
-      "name": "connectionString",
+      "name": "iothub_connection_string",
       "type": "string",
       "required": true
     },
     {
-      "name": "Operation",
+      "name": "operation",
       "type": "string",
       "required": true,
       "allowed": ["Add Device", "Delete Device", "Purge Device", "Get Twin Details"]
@@ -20,18 +20,18 @@
   ],
   "inputs":[
     {
-      "name": "Device ID",
+      "name": "device_id",
       "type": "string"
     }
   ],
   "output": [
     {
       "name": "result",
-      "type":"any"
+      "type":"string"
     },
     {
       "name": "status",
-      "type":"any"
+      "type":"string"
     }
   ]
 }
