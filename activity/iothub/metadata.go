@@ -45,6 +45,6 @@ func (o *Output) ToMap() map[string]interface{} {
 	
 	return map[string]interface{}{
 		"Result": o.Result,
-		"Status": o.Status
+		"Status": o.Status,
 	}
 }
