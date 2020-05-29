@@ -28,12 +28,12 @@ func init() {
 
 var activityMd = activity.ToMetadata(&Settings{}, &Input{}, &Output{})
 
-const {
-	maxIdleConnections int    = 100
-	requestTimeout     int    = 10
-	tokenValidSecs     int    = 3600
-	apiVersion         string = "2016-11-14"
-}
+
+const maxIdleConnections int    = 100
+const requestTimeout     int    = 10
+const tokenValidSecs     int    = 3600
+const apiVersion         string = "2016-11-14"
+
 
 type sharedAccessKey = string
 type sharedAccessKeyName = string
