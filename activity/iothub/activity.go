@@ -93,7 +93,8 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 	
 	output := &Output{}
 	
-	connectionString, methodType := a.settings.AZURE_IOTHUB_CONNECTION_STRING, a.settings.Operation
+	connectionString := a.settings.AZURE_IOTHUB_CONNECTION_STRING 
+	methodType := a.settings.Operation
 	deviceID := input.DeviceId
 
 	client, err := NewIotHubHTTPClientFromConnectionString(connectionString)
