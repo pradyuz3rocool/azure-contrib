@@ -10,3 +10,5 @@ Link for flogo web:
 ```
 https://github.com/project-flogo/azure-contrib/activity/iothub
 ```
+
+HostName=smartflo-beta.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XC9wn6yF5APFphRMCGQyo9jOh+CWpvRkK49rEnRz0fI=
