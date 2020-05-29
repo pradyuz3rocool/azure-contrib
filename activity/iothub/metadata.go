@@ -28,14 +28,14 @@ func (r *Input) ToMap() map[string]interface{} {
 }
 
 type Output struct {
-	Result string `md:result`
+	Result  `md:result`
 	Status string `md:status`
 }
 
 func (o *Output) FromMap(values map[string]interface{}) error {
-	result, _ := coerce.ToObject(values["Result"])
+	result, _ := coerce.ToString(values["Result"])
 	o.Result = result
-	status, _ := coerce.ToObject(values["Status"])
+	status, _ := coerce.ToString(values["Status"])
 	o.Status = status
 	return nil
 }
