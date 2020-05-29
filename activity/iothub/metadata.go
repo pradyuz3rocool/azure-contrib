@@ -28,7 +28,7 @@ func (r *Input) ToMap() map[string]interface{} {
 }
 
 type Output struct {
-	Result  `md:result`
+	Result string `md:result`
 	Status string `md:status`
 }
 
