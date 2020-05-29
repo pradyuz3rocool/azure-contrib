@@ -3,6 +3,8 @@ This activity provides your Flogo app the ability to perform operations on the A
 
 ## Installation
 
+github.com/pradyuz3rocool/azure-contrib/activity/iothub
+
 ```bash
 flogo install github.com/project-flogo/azure-contrib/activity/iothub
 ```
