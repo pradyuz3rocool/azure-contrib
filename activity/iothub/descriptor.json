@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "title": "IoTHub",
   "description": "Connect to IoTHub",
-  "homepage": "https://github.com/project-flogo/tree/master/examples/activity",
+  "homepage": "https://github.com/project-flogo/azure-contrib/activity/iothub",
   "settings": [
     {
       "name": "connectionString",
