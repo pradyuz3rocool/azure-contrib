@@ -3,6 +3,7 @@
   "type": "flogo:activity",
   "version": "0.0.1",
   "title": "IoTHub",
+  "ref":"github.com/pradyuz3rocool/azure-contrib/activity/iothub",
   "description": "Connect to IoTHub",
   "homepage": "https://github.com/project-flogo/azure-contrib/activity/iothub",
   "settings": [
