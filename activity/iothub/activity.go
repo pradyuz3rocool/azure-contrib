@@ -82,38 +82,39 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 		return true, err
 	}
 
-	ctx.Logger().Debugf("Input: %s", input.AnInput)
-	connectionString, methodType := a.settings.AZURE_IOTHUB_CONNECTION_STRING, a.settings.Operation
-	deviceID := a.input.DeviceId
-	
-	output := &Output{}
-	
-	connectionString, methodType := a.settings.AZURE_IOTHUB_CONNECTION_STRING, a.settings.Operation
-	deviceID := a.input.DeviceId
+	ctx.Logger().Debugf("DeviceId: %s", input.DeviceId)
 
-	client, err := NewIotHubHTTPClientFromConnectionString(connectionString)
-	if err != nil {
-		log.Error("Error creating http client from connection string", err)
-	}
+	//connectionString, methodType := a.settings.AZURE_IOTHUB_CONNECTION_STRING, a.settings.Operation
+	//deviceID := a.input.DeviceId
+	
+	// output := &Output{}
+	
+	// connectionString, methodType := a.settings.AZURE_IOTHUB_CONNECTION_STRING, a.settings.Operation
+	// deviceID := input.DeviceId
 
-	switch methodType {
-	case "Add Device":
-		resp, status := client.CreateDeviceID(deviceID)
-		ctx.SetOutputObject(output, resp)
-		//ctx.SetOutputObject(ovStatus, status)
-	case "Delete Device":
-		resp, status := client.DeleteDeviceID(deviceID)
-		ctx.SetOutputObject(output, resp)
-		//ctx.SetOutputObject(ovStatus, status)
-	case "Purge Device":
-		resp, status := client.PurgeCommandsForDeviceID(deviceID)
-		ctx.SetOutputObject(output, resp)
-		//ctx.SetOutputObject(ovStatus, status)
-	case "Get Twin Details":
-		resp, status := client.GetDeviceTwin(deviceID)
-		ctx.SetOutputObject(output, resp)
-		//ctx.SetOutputObject(ovStatus, status)
-	}
+	// client, err := NewIotHubHTTPClientFromConnectionString(connectionString)
+	// if err != nil {
+	// 	log.Error("Error creating http client from connection string", err)
+	// }
+
+	// switch methodType {
+	// case "Add Device":
+	// 	resp, status := client.CreateDeviceID(deviceID)
+	// 	ctx.SetOutputObject(output, resp)
+	// 	//ctx.SetOutputObject(ovStatus, status)
+	// case "Delete Device":
+	// 	resp, status := client.DeleteDeviceID(deviceID)
+	// 	ctx.SetOutputObject(output, resp)
+	// 	//ctx.SetOutputObject(ovStatus, status)
+	// case "Purge Device":
+	// 	resp, status := client.PurgeCommandsForDeviceID(deviceID)
+	// 	ctx.SetOutputObject(output, resp)
+	// 	//ctx.SetOutputObject(ovStatus, status)
+	// case "Get Twin Details":
+	// 	resp, status := client.GetDeviceTwin(deviceID)
+	// 	ctx.SetOutputObject(output, resp)
+	// 	//ctx.SetOutputObject(ovStatus, status)
+	// }
 
 	return true, nil
 }
