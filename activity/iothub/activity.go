@@ -20,6 +20,14 @@ import (
 	"github.com/project-flogo/core/support/log"
 )
 
+
+
+func init() {
+	_ = activity.Register(&Activity{}) //activity.Register(&Activity{}, New) to create instances using factory method 'New'
+}
+
+var activityMd = activity.ToMetadata(&Settings{}, &Input{}, &Output{})
+
 const {
 	maxIdleConnections int    = 100
 	requestTimeout     int    = 10
@@ -32,7 +40,7 @@ type sharedAccessKeyName = string
 type hostName = string
 type deviceID = string
 
-IotHubHTTPClient is a simple client to connect to Azure IoT Hub
+//IotHubHTTPClient is a simple client to connect to Azure IoT Hub
 type IotHubHTTPClient struct {
 	sharedAccessKeyName sharedAccessKeyName
 	sharedAccessKey     sharedAccessKey
@@ -40,12 +48,6 @@ type IotHubHTTPClient struct {
 	deviceID            deviceID
 	client              *http.Client
 }
-
-func init() {
-	_ = activity.Register(&Activity{}) //activity.Register(&Activity{}, New) to create instances using factory method 'New'
-}
-
-var activityMd = activity.ToMetadata(&Settings{}, &Input{}, &Output{})
 
 //New optional factory method, should be used if one activity instance per configuration is desired
 func New(ctx activity.InitContext) (activity.Activity, error) {
