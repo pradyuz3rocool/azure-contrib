@@ -20,10 +20,6 @@ import (
 )
 
 const {
-
-	ovResult = "result"
-	ovStatus = "status"
-
 	maxIdleConnections int    = 100
 	requestTimeout     int    = 10
 	tokenValidSecs     int    = 3600
@@ -86,14 +82,14 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 		return true, err
 	}
 
-	//ctx.Logger().Debugf("Input: %s", input.AnInput)
-
-	// output := &Output{AnOutput: input.AnInput}
-	// err = ctx.SetOutputObject(output)
-	// if err != nil {
-	// 	return true, err
-	// }
+	ctx.Logger().Debugf("Input: %s", input.AnInput)
 	connectionString, methodType := a.settings.AZURE_IOTHUB_CONNECTION_STRING, a.settings.Operation
+	deviceID := a.input.DeviceId
+	
+	output := &Output{}
+	
+	connectionString, methodType := a.settings.AZURE_IOTHUB_CONNECTION_STRING, a.settings.Operation
+	deviceID := a.input.DeviceId
 
 	client, err := NewIotHubHTTPClientFromConnectionString(connectionString)
 	if err != nil {
@@ -103,20 +99,20 @@ func (a *Activity) Eval(ctx activity.Context) (done bool, err error) {
 	switch methodType {
 	case "Add Device":
 		resp, status := client.CreateDeviceID(deviceID)
-		ctx.SetOutputObject(ovResult, resp)
-		ctx.SetOutputObject(ovStatus, status)
+		ctx.SetOutputObject(output, resp)
+		//ctx.SetOutputObject(ovStatus, status)
 	case "Delete Device":
 		resp, status := client.DeleteDeviceID(deviceID)
-		ctx.SetOutputObject(ovResult, resp)
-		ctx.SetOutputObject(ovStatus, status)
+		ctx.SetOutputObject(output, resp)
+		//ctx.SetOutputObject(ovStatus, status)
 	case "Purge Device":
 		resp, status := client.PurgeCommandsForDeviceID(deviceID)
-		ctx.SetOutputObject(ovResult, resp)
-		ctx.SetOutputObject(ovStatus, status)
+		ctx.SetOutputObject(output, resp)
+		//ctx.SetOutputObject(ovStatus, status)
 	case "Get Twin Details":
 		resp, status := client.GetDeviceTwin(deviceID)
-		ctx.SetOutputObject(ovResult, resp)
-		ctx.SetOutputObject(ovStatus, status)
+		ctx.SetOutputObject(output, resp)
+		//ctx.SetOutputObject(ovStatus, status)
 	}
 
 	return true, nil
