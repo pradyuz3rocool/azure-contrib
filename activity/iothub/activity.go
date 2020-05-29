@@ -19,26 +19,26 @@ import (
 	"github.com/project-flogo/core/data/metadata"
 )
 
-const {
-	maxIdleConnections int    = 100
-	requestTimeout     int    = 10
-	tokenValidSecs     int    = 3600
-	apiVersion         string = "2016-11-14"
-}
+// const {
+// 	maxIdleConnections int    = 100
+// 	requestTimeout     int    = 10
+// 	tokenValidSecs     int    = 3600
+// 	apiVersion         string = "2016-11-14"
+// }
 
-type sharedAccessKey = string
-type sharedAccessKeyName = string
-type hostName = string
-type deviceID = string
+// type sharedAccessKey = string
+// type sharedAccessKeyName = string
+// type hostName = string
+// type deviceID = string
 
 // IotHubHTTPClient is a simple client to connect to Azure IoT Hub
-type IotHubHTTPClient struct {
-	sharedAccessKeyName sharedAccessKeyName
-	sharedAccessKey     sharedAccessKey
-	hostName            hostName
-	deviceID            deviceID
-	client              *http.Client
-}
+// type IotHubHTTPClient struct {
+// 	sharedAccessKeyName sharedAccessKeyName
+// 	sharedAccessKey     sharedAccessKey
+// 	hostName            hostName
+// 	deviceID            deviceID
+// 	client              *http.Client
+// }
 
 func init() {
 	_ = activity.Register(&Activity{}) //activity.Register(&Activity{}, New) to create instances using factory method 'New'
