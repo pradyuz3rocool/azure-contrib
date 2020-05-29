@@ -14,6 +14,12 @@ import (
 	// "strconv"
 	// "strings"
 	// "time"
+	"context"
+	"errors"
+	"fmt"
+	"io/ioutil"
+	"net/url"
+	"os"
 
 	"github.com/project-flogo/core/activity"
 	"github.com/project-flogo/core/data/metadata"
