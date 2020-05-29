@@ -56,7 +56,8 @@ func New(ctx activity.InitContext) (activity.Activity, error) {
 		return nil, err
 	}
 
-	ctx.Logger().Debugf("Setting: %s", s.ASetting)
+	ctx.Logger().Debugf("Azure IoT Hub connection string: %s", s.AZURE_IOTHUB_CONNECTION_STRING)
+	ctx.Logger().Debugf("Operation: %s", s.Operation)
 
 	act := &Activity{} //add aSetting to instance
 
